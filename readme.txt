@@ -1,9 +1,9 @@
 === Plugin Name ===
 Contributors: danlester
 Tags: login, google, authentication, oauth2, oauth, admin, google apps, sso, single-sign-on, auth, intranet
-Requires at least: 3.3
+Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 2.4.4
+Stable tag: 2.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -75,6 +75,9 @@ Please ask if you need instructions on how to produce those files.
 Please see our website [http://wp-glogin.com/](http://wp-glogin.com/?utm_source=Login%20Readme%20Website&utm_medium=freemium&utm_campaign=Freemium) for more information about this free plugin 
 and extra features available in our Premium upgrade, plus support details, other plugins, and useful guides for admins of  
 WordPress sites and Google Apps.
+
+If you are building your organization's intranet on WordPress, try out our 
+[All-In-One Intranet plugin](http://wp-glogin.com/all-in-one-intranet/?utm_source=Login%20Readme%20AIOI&utm_medium=freemium&utm_campaign=Freemium).
 
 == Screenshots ==
 
@@ -213,6 +216,10 @@ the WordPress admin panel once you have activated the plugin. For a (non-persona
 please [click here](http://wp-glogin.com/installing-google-apps-login/basic-setup/).
 
 == Changelog ==
+
+= 2.5 =
+
+Platform extended to provide Service Account settings.
 
 = 2.4.4 =
 

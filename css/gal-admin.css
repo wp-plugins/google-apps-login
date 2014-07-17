@@ -108,3 +108,34 @@ div#logs-section table tr.gal_log_level4 {
 div#logs-section table tr.gal_log_level3 {
 	color: red;
 }
+
+.gal-lowerinput {
+	margin-top: 12px;	
+}
+
+.gal-admin-scopes-list {
+    background-color: lightyellow;
+    border: 1px solid gray;
+    border-radius: 3px;
+    max-width: 600px;
+    overflow: hidden;
+    overflow-x: scroll;
+    padding: 0 2px;	
+    cursor: text;
+    white-space: nowrap;
+}
+
+table.gal-admin-service-scopes {
+	border: 1px solid;
+}
+
+table.gal-admin-service-scopes td {
+	padding: 4px;
+	vertical-align: top;
+}
+
+table.gal-admin-service-scopes thead {
+	background-color: white;
+	font-style: italic;
+}
+

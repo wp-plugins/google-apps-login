@@ -45,4 +45,31 @@ jQuery(document).ready(function() {
 	};
 	jQuery('#input_ga_disablewplogin').on('click', clickfn2);
 	clickfn2();
+	
+	// Show service account button
+	jQuery('#gal-show-admin-serviceacct').on('click', function(e) {
+		jQuery('#gal-hide-admin-serviceacct').show();
+		jQuery('#gal-show-admin-serviceacct').hide();
+		e.preventDefault();
+	});
+	
+	// Copy and paste click
+	function selectText(element) {
+	    var range, selection;
+	    
+	    if (document.body.createTextRange) { //ms
+	        range = document.body.createTextRange();
+	        range.moveToElementText(element);
+	        range.select();
+	    } else if (window.getSelection) { //all others
+	        selection = window.getSelection();        
+	        range = document.createRange();
+	        range.selectNodeContents(element);
+	        selection.removeAllRanges();
+	        selection.addRange(range);
+	    }
+	}
+	jQuery('.gal-admin-scopes-list').on('click', function(e) {
+		selectText(e.target);
+	});
 }); 

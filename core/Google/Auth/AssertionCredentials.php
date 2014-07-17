@@ -17,6 +17,7 @@
 
 require_once "Google/Auth/OAuth2.php";
 require_once "Google/Signer/P12.php";
+require_once "Google/Signer/PEM.php";
 require_once "Google/Utils.php";
 
 /**
@@ -34,6 +35,7 @@ class GoogleGAL_Auth_AssertionCredentials
   public $privateKeyPassword;
   public $assertionType;
   public $sub;
+  public $signerClass = 'GoogleGAL_Signer_P12';
   /**
    * @deprecated
    * @link http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06
@@ -69,6 +71,10 @@ class GoogleGAL_Auth_AssertionCredentials
     $this->sub = $sub;
     $this->prn = $sub;
     $this->useCache = $useCache;
+  }
+  
+  public function setSignerClass($signerClass) {
+  	$this->signerClass = $signerClass;
   }
   
   /**
@@ -129,7 +135,7 @@ class GoogleGAL_Auth_AssertionCredentials
     );
 
     $signingInput = implode('.', $segments);
-    $signer = new GoogleGAL_Signer_P12($this->privateKey, $this->privateKeyPassword);
+    $signer = new $this->signerClass($this->privateKey, $this->privateKeyPassword);
     $signature = $signer->sign($signingInput);
     $segments[] = GoogleGAL_Utils::urlSafeB64Encode($signature);
 
