@@ -22,7 +22,7 @@ Plugin setup requires you to have admin access to any Google Apps domain, or a r
 
 Full support and premium features are also available for purchase:
 
-Eliminate the need for Google Apps domain admins to  separately manage WordPress user accounts, and get piece 
+Eliminate the need for Google Apps domain admins to  separately manage WordPress user accounts, and get peace 
 of mind that only authorized employees have access to the organizations's websites and intranet.
 
 See [http://wp-glogin.com/google-apps-login-premium/](http://wp-glogin.com/google-apps-login-premium/?utm_source=Login%20Readme%20Top&utm_medium=freemium&utm_campaign=Freemium)
