@@ -37,8 +37,11 @@ permissions that users already allowed for Google Apps Login itself.
 Using our platform, your website appears to Google accounts as one unified 'web application', making it more secure 
 and easier to manage.
 
-[Google Drive Embedder](http://wp-glogin.com/wpgoogledriveembedder) is our free extension plugin allowing 
+[Google Drive Embedder](http://wp-glogin.com/wpgoogledriveembedder) is a free extension plugin allowing 
 users to browse for Google Drive documents to embed directly in their posts or pages.
+
+[Google Apps Directory](http://wp-glogin.com/wpgoogleappsdirectory) is a free extension plugin allowing 
+logged-in users to search your Google Apps employee directory from a widget on your intranet or client site.
 
 [Google Profile Avatars](http://wp-glogin.com/avatars/?utm_source=Login%20Readme%20Avatars&utm_medium=freemium&utm_campaign=Freemium) 
 is available on our website. It displays users' Google profile photos in place of their avatars throughout your site.
