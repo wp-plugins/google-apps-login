@@ -27,7 +27,7 @@ of mind that only authorized employees have access to the organizations's websit
 
 See [http://wp-glogin.com/google-apps-login-premium/](http://wp-glogin.com/google-apps-login-premium/?utm_source=Login%20Readme%20Top&utm_medium=freemium&utm_campaign=Freemium)
 
-[youtube http://www.youtube.com/watch?v=SjgOnGg82TU&vq=hd720]
+[youtube http://www.youtube.com/watch?v=SjgOnGg82TU]
 
 = Extensible Platform =
 
