@@ -3,7 +3,7 @@ Contributors: danlester
 Tags: login, google, authentication, oauth2, oauth, admin, google apps, sso, single-sign-on, auth, intranet
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 2.5
+Stable tag: 2.5.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -27,6 +27,7 @@ of mind that only authorized employees have access to the organizations's websit
 
 See [http://wp-glogin.com/google-apps-login-premium/](http://wp-glogin.com/google-apps-login-premium/?utm_source=Login%20Readme%20Top&utm_medium=freemium&utm_campaign=Freemium)
 
+[youtube http://www.youtube.com/watch?v=SjgOnGg82TU&vq=hd720]
 
 = Extensible Platform =
 
@@ -219,6 +220,10 @@ the WordPress admin panel once you have activated the plugin. For a (non-persona
 please [click here](http://wp-glogin.com/installing-google-apps-login/basic-setup/).
 
 == Changelog ==
+
+= 2.5.2 =
+
+Service Account settings can be uploaded by copy-and-paste of JSON file contents as well as just uploading the file directly.
 
 = 2.5 =
 

@@ -139,3 +139,7 @@ table.gal-admin-service-scopes thead {
 	font-style: italic;
 }
 
+a.gal_jsonkeytext {
+	vertical-align: top;
+	margin-left: 12px;
+}

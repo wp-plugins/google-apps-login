@@ -3,11 +3,15 @@
 class gal_keyfile_uploader {
 	
 	protected $fileindex = '';
-	public function __construct($fileindex) {
+	protected $jsontext = '';
+	// JSON could have been submitted by a file or by text
+	public function __construct($fileindex, $jsontext) {
 		$this->fileindex = $fileindex;
+		$this->jsontext = $jsontext;
 		$this->attempt_upload();
 	}
 	
+	protected $contents = null;
 	protected function attempt_upload() {
 		// If there was an attempt to upload a file
 		if (isset($_FILES[$this->fileindex]) 
@@ -22,21 +26,23 @@ class gal_keyfile_uploader {
 			}
 
 			if (isset($_FILES[$this->fileindex]['size']) && $_FILES[$this->fileindex]['size'] <= 0) {
-				ob_start();
-				var_dump($_FILES[$this->fileindex]);
-				error_log(ob_get_clean());
-				
 				$this->error = 'no_content';
 				return;
 			}
 			
-			$this->read_json($_FILES[$this->fileindex]['tmp_name']);			
+			$filepath = $_FILES[$this->fileindex]['tmp_name'];
+			$this->contents = @file_get_contents($filepath);
+		}
+		else if (strlen(trim($this->jsontext)) > 0) {
+			$this->contents = strpos($this->jsontext, '\\\\') !== false ? stripslashes($this->jsontext) : $this->jsontext;
+		}
+		if ($this->contents !== null) {
+			$this->read_json();
 		}
 	}
 	
-	protected function read_json($filepath) {
-		$contents = @file_get_contents($filepath);
-		$fullkey = json_decode($contents, TRUE);
+	protected function read_json() {
+		$fullkey = json_decode($this->contents, TRUE);
 		if ($fullkey === null || !is_array($fullkey)) {
 			$this->error = 'decode_error';
 			return;

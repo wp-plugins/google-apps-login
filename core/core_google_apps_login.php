@@ -125,6 +125,18 @@ class core_google_apps_login {
     			margin: 12px 0px;
 	        }
 	        
+	        <?php if ($this->should_hidewplogin($options)) { ?>
+	        
+	        div#login form#loginform p label[for=user_login], 
+	        div#login form#loginform p label[for=user_pass],
+	        div#login form#loginform p label[for=rememberme],
+	        div#login form#loginform p.submit,
+	        div#login p#nav {
+	        	display: none;
+	        } 
+	         
+	        <?php } ?>
+	        
 	     </style>
 	<?php }
 	
@@ -666,10 +678,15 @@ class core_google_apps_login {
 			}
 		}
 		
-		echo '<label for="input_ga_keyfile" class="textinput">'.__('Upload Service Account JSON file', 'google-apps-login').'</label>';
+		echo '<label for="input_ga_keyfileupload" class="textinput gal_jsonkeyfile">'.__('Upload Service Account JSON file', 'google-apps-login').'</label>';
+		echo '<label for="input_ga_keyjson" class="textinput gal_jsonkeytext" style="display: none;">'.__('Paste contents of JSON file', 'google-apps-login').'</label>';
+		
 		echo "<div class='gal-lowerinput'>";
 		echo "<input type='hidden' name='MAX_FILE_SIZE' value='10240' />";
-		echo "<input type='file' name='ga_keyfileupload' id='input_ga_keyfileupload' />";
+		echo "<input type='file' name='ga_keyfileupload' id='input_ga_keyfileupload' class='gal_jsonkeyfile'/>";
+		echo "<a href='#' class='gal_jsonkeyfile'>Problem uploading file?</a>";
+		echo "<textarea name='".$this->get_options_name()."[ga_keyjson]' id='input_ga_keyjson' class='gal_jsonkeytext' style='display: none;'></textarea>";
+		echo "<a href='#' class='gal_jsonkeytext' style='display: none;'>Prefer the file upload?</a>";
 		echo '</div>';
 		echo '<br class="clear">';
 		
@@ -829,7 +846,7 @@ class core_google_apps_login {
 		}
 
 		// Submitting a JSON key for Service Account
-		if (isset($_FILES['ga_keyfileupload'])) {
+		if (isset($_FILES['ga_keyfileupload']) || (isset($input['ga_keyjson']) && strlen(trim($input['ga_keyjson'])) > 0)) {
 			if (!class_exists('gal_keyfile_uploader')) {
 				$this->setIncludePath();
 				require_once( 'keyfile_uploader.php' );
@@ -837,7 +854,7 @@ class core_google_apps_login {
 			
 			$saoptions = $this->get_sa_option();
 			
-			$kfu = new gal_keyfile_uploader('ga_keyfileupload');
+			$kfu = new gal_keyfile_uploader('ga_keyfileupload', isset($input['ga_keyjson']) ? $input['ga_keyjson'] : '');
 			$newemail = $kfu->getEmail();
 			$newkey = $kfu->getKey();
 			$newprint = $kfu->getPrint();

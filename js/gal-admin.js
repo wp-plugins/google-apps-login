@@ -33,18 +33,46 @@ jQuery(document).ready(function() {
 		}
 	}
 	
+	// JSON keyfile Browse for File <-> Textarea
+	jQuery('a.gal_jsonkeyfile').on('click', function(e){
+		jQuery('input#input_ga_keyfileupload').replaceWith(
+				jQuery("<input type='file' name='ga_keyfileupload' id='input_ga_keyfileupload' class='gal_jsonkeyfile'/>")
+		);
+		jQuery('.gal_jsonkeyfile').hide();
+		jQuery('.gal_jsonkeytext').show();
+		e.preventDefault();
+	});
+	jQuery('a.gal_jsonkeytext').on('click', function(e){
+		jQuery('.gal_jsonkeytext').hide();
+		jQuery('.gal_jsonkeyfile').show();
+		jQuery('textarea#input_ga_keyjson').val('');
+		e.preventDefault();
+	});
+	
 	// Dependent fields in premium
+	// Default role only makes sense if Auto-create users is checked
 	clickfn = function() {
 		jQuery('#ga_defaultrole').prop('disabled',  !jQuery('#input_ga_autocreate').is(':checked'));
 	};
 	jQuery('#input_ga_autocreate').on('click', clickfn);
 	clickfn();
 	
+	// Only allow Completely hide WP login if Disable WP login for my domain is checked
 	clickfn2 = function() {
 		jQuery('#input_ga_hidewplogin').prop('disabled',  !jQuery('#input_ga_disablewplogin').is(':checked'));
 	};
 	jQuery('#input_ga_disablewplogin').on('click', clickfn2);
 	clickfn2();
+	
+	// Only bother with any domain-specific options if a domain has been entered
+	if (jQuery('#input_ga_domainname').length > 0) {
+		domainchangefn = function() {
+			var domainname = jQuery('#input_ga_domainname').val().trim();
+			jQuery('#domain-section select, #domain-section input').not('#input_ga_domainname').prop('disabled', domainname == '');
+		};
+		jQuery('#input_ga_domainname').on('change', domainchangefn);
+		domainchangefn();
+	}
 	
 	// Show service account button
 	jQuery('#gal-show-admin-serviceacct').on('click', function(e) {
