@@ -27,7 +27,7 @@ of mind that only authorized employees have access to the organizations's websit
 
 See [http://wp-glogin.com/google-apps-login-premium/](http://wp-glogin.com/google-apps-login-premium/?utm_source=Login%20Readme%20Top&utm_medium=freemium&utm_campaign=Freemium)
 
-[youtube http://www.youtube.com/watch?v=SjgOnGg82TU]
+[youtube http://www.youtube.com/watch?v=wz9aN_4WaM8]
 
 = Extensible Platform =
 
@@ -67,6 +67,7 @@ they also use OAuth2. This is discussed further in the [FAQ](http://wordpress.or
 This plugin currently operates in the following languages:
 
 * English - default
+* French (fr_FR) - translated by Lucien Ntumba of [GPC.solutions](http://gpcsolutions.fr/)
 * Serbo-Croatian (sr_RS) - translated by Borisa Djuraskovic of [Web Hosting Hub](http://www.webhostinghub.com/)
 * Arabic (ar_SA) - translated by [Jeremy Varnham](http://profiles.wordpress.org/jvarn13)
 

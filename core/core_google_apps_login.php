@@ -512,7 +512,10 @@ class core_google_apps_login {
 	}
 	
 	public function ga_options_do_page() {
-
+		if (!current_user_can(is_multisite() ? 'manage_network_options' : 'manage_options')) {
+			wp_die();
+		}
+		
 		wp_enqueue_script( 'gal_admin_js', $this->my_plugin_url().'js/gal-admin.js', array('jquery') );
 		wp_enqueue_style( 'gal_admin_css', $this->my_plugin_url().'css/gal-admin.css' );
 
