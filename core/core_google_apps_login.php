@@ -915,8 +915,6 @@ class core_google_apps_login {
 						'ga_force_permissions' => false,
 						'ga_auto_login' => false,
 						'ga_poweredby' => false,
-						//'ga_serviceemail' => '',
-						//'ga_keyfilepath' => '',
 						'ga_sakey' => '',
 						'ga_domainadmin' => '');
 	}
@@ -1078,7 +1076,7 @@ class core_google_apps_login {
 			require_once( 'Google/Client.php' );
 		}
 		
-		$client = new GoogleGAL_Client();
+		$client = new GoogleGAL_Client(apply_filters('gal_client_config_ini', null));
 		$client->setApplicationName("Wordpress Site");
 		return $client;
 	}
@@ -1097,7 +1095,7 @@ class core_google_apps_login {
 	// HOOKS AND FILTERS
 	// *****************
 	
-	protected function add_actions() {		
+	protected function add_actions() {
 		add_action('plugins_loaded', array($this, 'ga_plugins_loaded'));
 		
 		add_action('login_enqueue_scripts', array($this, 'ga_login_styles'));
@@ -1121,7 +1119,7 @@ class core_google_apps_login {
 			add_filter( 'plugin_action_links', array($this, 'ga_plugin_action_links'), 10, 2 );
 		}
 	}
-	
+
 }
 
 class GAL_Service_Exception extends Exception {

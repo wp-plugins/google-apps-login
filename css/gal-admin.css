@@ -143,3 +143,7 @@ a.gal_jsonkeytext {
 	vertical-align: top;
 	margin-left: 12px;
 }
+
+#license-section table td {
+	padding-right: 8px;	
+}

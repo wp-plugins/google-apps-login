@@ -3,7 +3,7 @@ Contributors: danlester
 Tags: login, google, authentication, oauth2, oauth, admin, google apps, sso, single-sign-on, auth, intranet
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 2.5.2
+Stable tag: 2.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -53,6 +53,7 @@ Google Apps Login works on single or multisite WordPress websites or private int
 
 One-click login will work for the following domains and user accounts:
 
+*  Google Apps for Work
 *  Google Apps for Business
 *  Google Apps for Education
 *  Google Apps for Non-profits
@@ -221,6 +222,11 @@ the WordPress admin panel once you have activated the plugin. For a (non-persona
 please [click here](http://wp-glogin.com/installing-google-apps-login/basic-setup/).
 
 == Changelog ==
+
+= 2.7 =
+
+Accepts filter gal_client_config_ini containing filesystem path to an INI file to supply to Google's client library on instantiation, so you can override settings.
+Added substitution version core/Google/IO/DebugVersionOfCurl.php to replace core/Google/IO/Curl.php temporarily to log communications to Google's server for debugging purposes.
 
 = 2.5.2 =
 
