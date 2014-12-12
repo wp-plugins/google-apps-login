@@ -1,9 +1,9 @@
 === Plugin Name ===
 Contributors: danlester
 Tags: login, google, authentication, oauth2, oauth, admin, google apps, sso, single-sign-on, auth, intranet
-Requires at least: 3.5
-Tested up to: 4.0
-Stable tag: 2.7
+Requires at least: 3.7
+Tested up to: 4.1
+Stable tag: 2.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -222,6 +222,10 @@ the WordPress admin panel once you have activated the plugin. For a (non-persona
 please [click here](http://wp-glogin.com/installing-google-apps-login/basic-setup/).
 
 == Changelog ==
+
+= 2.8 =
+
+Session mismatch (could be a problem setting cookies) should now occur less frequently. Service Account can have no admin email (for gmail.com accounts).
 
 = 2.7 =
 
