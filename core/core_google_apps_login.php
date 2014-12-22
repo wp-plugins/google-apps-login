@@ -152,7 +152,7 @@ class core_google_apps_login {
 		
 		// Generate a CSRF token
 		$client->setState(urlencode(
-				wp_create_nonce('google_apps_login-'.$this->get_cookie_value())
+				$this->session_indep_create_nonce('google_apps_login-'.$this->get_cookie_value())
 				.'|'.$this->get_redirect_url()
 		));
 		
@@ -290,7 +290,7 @@ class core_google_apps_login {
 			$retnonce = $statevars[0];
 			$retredirectto = $statevars[1];
 			
-			if (!wp_verify_nonce($retnonce, 'google_apps_login-'.$this->get_cookie_value())) {
+			if (!$this->session_indep_verify_nonce($retnonce, 'google_apps_login-'.$this->get_cookie_value())) {
 				$user = new WP_Error('ga_login_error', __( "Session mismatch - try again, but there could be a problem setting cookies" , 'google-apps-login') );
 				return $this->displayAndReturnError($user);
 			}
@@ -413,7 +413,7 @@ class core_google_apps_login {
 	}
 	
 	public function ga_init() {
-		if ($GLOBALS['pagenow'] == 'wp-login.php') { // && !isset($_COOKIE['google_apps_login']
+		if ($GLOBALS['pagenow'] == 'wp-login.php') {
 			setcookie('google_apps_login', $this->get_cookie_value(), time()+36000, '/', defined(COOKIE_DOMAIN) ? COOKIE_DOMAIN : '' );
 		}
 	}
@@ -431,6 +431,46 @@ class core_google_apps_login {
 		}
 		
 		return $login_url;
+	}
+	
+	// Build our own nonce functions as wp_create_nonce is user dependent,
+	// and our nonce is created when logged-out, then verified when logged-in
+	
+	protected function session_indep_create_nonce($action = -1) {
+		$i = wp_nonce_tick();
+		return substr( wp_hash( $i . '|' . $action, 'nonce' ), -12, 10 );
+	}
+	
+	protected function session_indep_verify_nonce( $nonce, $action = -1 ) {
+		$nonce = (string) $nonce;
+		if ( empty( $nonce ) ) {
+			return false;
+		}
+	
+		$i = wp_nonce_tick();
+	
+		// Nonce generated 0-12 hours ago
+		$expected = substr( wp_hash( $i . '|' . $action, 'nonce'), -12, 10 );
+		if ( $this->hash_equals( $expected, $nonce ) ) {
+			return 1;
+		}
+	
+		// Nonce generated 12-24 hours ago
+		$expected = substr( wp_hash( ( $i - 1 ) . '|' . $action, 'nonce' ), -12, 10 );
+		if ( $this->hash_equals( $expected, $nonce ) ) {
+			return 2;
+		}
+	
+		// Invalid nonce
+		return false;
+	}
+	
+	private function hash_equals($expected, $nonce) {
+		// Global/PHP fn hash_equals didn't exist before WP3.9.2
+		if (function_exists('hash_equals')) {
+			return hash_equals($expected, $nonce);
+		}
+		return $expected == $nonce;
 	}
 	
 	// ADMIN AND OPTIONS
