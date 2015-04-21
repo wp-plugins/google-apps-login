@@ -2,7 +2,7 @@
 Contributors: danlester
 Tags: login, google, authentication, oauth2, oauth, admin, google apps, sso, single-sign-on, auth, intranet
 Requires at least: 3.7
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 2.8.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -72,6 +72,7 @@ This plugin currently operates in the following languages:
 * Spanish (es_ES) - translated by David Perez of [Closemarketing](https://www.closemarketing.es/)
 * Serbo-Croatian (sr_RS) - translated by Borisa Djuraskovic of [Web Hosting Hub](http://www.webhostinghub.com/)
 * Arabic (ar_SA) - translated by [Jeremy Varnham](http://profiles.wordpress.org/jvarn13)
+* Ukrainian (uk_UA) - translated by Serj Kondrashov
 
 We are looking for volunteers to translate into their own language. If you would like to contribute a translation, please 
 use the template POT file in the 'lang' folder, then email PO and MO files to contact@wp-glogin.com. 
