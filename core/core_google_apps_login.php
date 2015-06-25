@@ -82,31 +82,31 @@ class core_google_apps_login {
 	public function ga_login_styles() {
 		$options = $this->get_option_galogin();
 		wp_enqueue_script('jquery');
-		 ?>
-	    <style type="text/css">
+		?>
+		<style type="text/css">
+
 	    	form#loginform p.galogin {
-				background: none repeat scroll 0 0 #2EA2CC;
-			    border-color: #0074A2;
-			    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
-			    color: #FFFFFF;
-			    text-decoration: none;
-	            text-align: center;
-	            vertical-align: middle;
-	            border-radius: 3px;
-			    padding: 4px;
-			    height: 27px;
-			    font-size: 14px;
 			    margin-bottom: <?php echo $options['ga_poweredby'] ? '6' : '16' ?>px;
 	        }
 	        
 	        form#loginform p.galogin a {
-	        	color: #FFFFFF;
-	        	line-height: 27px;
-	        	font-weight: bold;
+	        	width: 100%;
+	        	text-align: center;
+	        	padding: 4px;
+	        	height: auto;
+	        	float: none;
 	        }
 
-        	form#loginform p.galogin a:hover {
-	        	color: #CCCCCC;
+	        form#loginform p.galogin a i {
+				background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAxCAYAAACYq/ofAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAABCRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIgogICAgICAgICAgICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgICAgICAgICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyI+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDx0aWZmOkNvbXByZXNzaW9uPjU8L3RpZmY6Q29tcHJlc3Npb24+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjcyPC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj43MjwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjUwPC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6Q29sb3JTcGFjZT4xPC9leGlmOkNvbG9yU3BhY2U+CiAgICAgICAgIDxleGlmOlBpeGVsWURpbWVuc2lvbj40OTwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAg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');
+				background-position: center center;
+				background-repeat: no-repeat;
+ 				background-size: 18px;
+				height: 18px;
+				width: 18px;
+				display: inline-block;
+  				vertical-align: middle;
+  				margin-right: 10px;
 	        }
 	        
 	        h3.galogin-or {
@@ -197,8 +197,9 @@ class core_google_apps_login {
 		}
 		
 ?>
+
 		<p class="galogin"> 
-			<a href="<?php echo $authUrl; ?>"><?php echo esc_html($this->get_login_button_text()); ?></a>
+			<a class="button button-primary button-large" href="<?php echo $authUrl; ?>"><i></i><?php echo esc_html($this->get_login_button_text()); ?></a>
 		</p>
 		
 		<?php if ($options['ga_poweredby']) { ?>
