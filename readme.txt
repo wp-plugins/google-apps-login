@@ -70,7 +70,7 @@ This plugin currently operates in the following languages:
 * English - default
 * French (fr_FR) - translated by Lucien Ntumba of [GPC.solutions](http://gpcsolutions.fr/)
 * Spanish (es_ES) - translated by David Perez of [Closemarketing](https://www.closemarketing.es/)
-* Dutch (da_DK) - translated by Alexander Leo-Hansen of [alexanderleohansen.dk](http://alexanderleohansen.dk/)
+* Danish (da_DK) - translated by Alexander Leo-Hansen of [alexanderleohansen.dk](http://alexanderleohansen.dk/)
 * Serbo-Croatian (sr_RS) - translated by Borisa Djuraskovic of [Web Hosting Hub](http://www.webhostinghub.com/)
 * Arabic (ar_SA) - translated by [Jeremy Varnham](http://profiles.wordpress.org/jvarn13)
 * Ukrainian (uk_UA) - translated by Serj Kondrashov
