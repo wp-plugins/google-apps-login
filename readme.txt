@@ -2,7 +2,7 @@
 Contributors: danlester
 Tags: login, google, authentication, oauth2, oauth, google login, google apps, sso, single-sign-on, auth, intranet
 Requires at least: 3.7
-Tested up to: 4.2
+Tested up to: 4.3
 Stable tag: 2.8.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
