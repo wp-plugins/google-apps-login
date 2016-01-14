@@ -237,8 +237,10 @@ class core_google_apps_login {
 	}
 	
 	protected function get_login_button_text() {
-		return __( 'Login with Google' , 'google-apps-login');
+		$login_text = __('Login with Google', 'google-apps-login');
+		return apply_filters('google_apps_login_text',$login_text);
 	}
+
 	
 	protected function should_hidewplogin($options) {
 		return false;
